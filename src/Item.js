@@ -23,7 +23,8 @@ const Item = (props) => {
                 readOnly={readonly}
                 id={id}
                 onDoubleClick={(e) => {
-                    setreadonly(false);
+                    if( status )
+                        setreadonly(false);
                 }}
                 onChange={(e) => {
                     setText(e.target.value);
