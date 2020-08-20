@@ -6,15 +6,18 @@ const Item = (props) => {
     const [readonly, setreadonly] = useState(true);
     const [text, setText] = useState("");
     const [id, setId] = useState("");
-
+    const [ status , setStatus ] = useState("");
+    
     useEffect(() => {
         setText(props.text);
         setId(props.id);
-    }, [props.text, props.id]);
+        setStatus( props.active );
+    }, [props.text, props.id, props.active ]);
 
     return (
         <span className="paper-item">
             <input
+                className={ !status ? "cross-item" : ""}
                 type="text"
                 value={text}
                 readOnly={readonly}
@@ -34,11 +37,11 @@ const Item = (props) => {
             />
             <div className="paper-item-icons">
                 {props.active ? (
-                    <span className="tick-icon" id={id}>
+                    <span className="tick-icon" id={id} onClick={(e) => { props.markTaskAsDone( e.target.id );}}>
                         &#10003;
                     </span>
                 ) : null}
-                <span className="remove-icon" id={id}>
+                <span className="remove-icon" id={id} onClick={(e) => { props.removeTask( e.target.id )}}>
                     x
                 </span>
             </div>
@@ -54,6 +57,22 @@ const mapDispatchToProps = ( dispatch ) => {
                 payload: {
                     id: id,
                     text: text,
+                }
+            })
+        },
+        markTaskAsDone: ( id ) => {
+            dispatch({
+                type: "DONE",
+                payload:{
+                    id: id,
+                }
+            })
+        },
+        removeTask: ( id ) => {
+            dispatch({
+                type: "REMOVE",
+                payload:{
+                    id: id,
                 }
             })
         }

@@ -54,6 +54,10 @@
     font-size: 0.9rem;
     padding: 20px 10px;
 }
+.cross-item{
+    text-decoration: line-through;
+    color: #e0e0e0;
+}
 .paper-item-icons{
     display: flex;
     align-items: center;
