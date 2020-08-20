@@ -22,7 +22,7 @@
 .todo-area{
     display: flex;
     flex-flow: column nowrap;
-    width: 40vw;
+    width: 50vw;
     box-shadow: 3px 6px 6px #dddddd;
 }
 .todo-area-input input[type=text]{
@@ -36,7 +36,7 @@
 }
 .paper{
     background-color: #ffffff;
-    min-width: 40vw;
+    min-width: 50vw;
     border-bottom: 1px inset #f7f7f7;
 }
 .paper-item{
@@ -46,6 +46,8 @@
     border-bottom: 1px inset #f7f7f7;
 }
 .paper-item input[type=text]{
+    flex-grow: 1;
+    word-wrap: break-word;
     background-color: #ffffff;
     border: none;
     margin: 0;
@@ -56,14 +58,14 @@
 }
 .cross-item{
     text-decoration: line-through;
-    color: #e0e0e0;
+    opacity: 0.3;
 }
 .paper-item-icons{
     display: flex;
     align-items: center;
 }
 .tick-icon , .remove-icon{
-    opacity: 0.1;
+    opacity: 0.3;
     padding: 5px 10px;
     cursor: pointer;
 }
@@ -104,4 +106,48 @@
 .todo-bottom-option li:hover{
     background-color: #d5f1ff;
     border-radius: 4px;
+}
+.todo-bottom-option-active{
+    background-color: #d5f1ff;
+    border-radius: 4px;
+}
+@media only screen and ( max-width: 1000px ){
+    .todo-area{
+        width: 60vw;
+    }
+    .paper{
+        min-width: 60vw;
+    }
+}
+@media only screen and ( max-width: 850px ){
+    .todo-area{
+        width: 70vw;
+    }
+    .paper{
+        min-width: 70vw;
+    }
+}
+@media only screen and ( max-width: 700px ){
+    .todo-area{
+        width: 80vw;
+    }
+    .paper{
+        min-width: 80vw;
+    }
+}
+@media only screen and ( max-width: 550px ){
+    .todo-area{
+        width: 90vw;
+    }
+    .paper{
+        min-width: 90vw;
+    }
+}
+@media only screen and ( max-width: 450px ){
+    .todo-area{
+        width: 98vw;
+    }
+    .paper{
+        min-width:98vw;
+    }
 }

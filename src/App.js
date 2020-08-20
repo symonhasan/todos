@@ -18,7 +18,7 @@ function App() {
       <div className="todo-area">
         <Top />
         <Paper mode={mode}/>
-        <Bottom bottomHandler={bottomHandler}/>
+        <Bottom bottomHandler={bottomHandler} mode={mode}/>
       </div>
     </div>
   );
