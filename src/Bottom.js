@@ -7,9 +7,9 @@ const Bottom = ( props ) => {
         <div className="todo-bottom">
           <span>{props.count} item left</span>
           <ul className="todo-bottom-option">
-            <li>All</li>
-            <li>Active</li>
-            <li>Completed</li>
+            <li id="all" onClick={ props.bottomHandler }>All</li>
+            <li id="active" onClick={ props.bottomHandler }>Active</li>
+            <li id="completed" onClick={ props.bottomHandler }>Completed</li>
           </ul>
         </div>
     )

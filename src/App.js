@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Paper from './Paper';
 import Bottom from './Bottom';
 import Top from './Top';
 
 function App() {
+  const [ mode , setMode ] = useState("all");
+
+  const bottomHandler = ( event ) => {
+    setMode( event.target.id );
+  }
   return (
     <div className="app-div">
       <div className="app-title">
@@ -12,8 +17,8 @@ function App() {
       </div>
       <div className="todo-area">
         <Top />
-        <Paper />
-        <Bottom />
+        <Paper mode={mode}/>
+        <Bottom bottomHandler={bottomHandler}/>
       </div>
     </div>
   );
