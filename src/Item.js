@@ -4,10 +4,12 @@ import './App.css';
 const Item = (props) => {
     const [ readonly , setreadonly ] = useState( true );
     const [ text , setText ] = useState("");
+    const [ id , setId ] = useState("");
 
     useEffect(() => {
         setText( props.text );
-    } , [ props.text ])
+        setId( props.id );
+    } , [ props.text , props.id ])
     return(
         <span className="paper-item">
             {
@@ -18,8 +20,8 @@ const Item = (props) => {
                 )
             }
             <div className="paper-item-icons">
-                {props.active ? <span className="tick-icon">&#10003;</span> : null }
-                <span className="remove-icon">x</span>
+                {props.active ? <span className="tick-icon" id={id}>&#10003;</span> : null }
+                <span className="remove-icon" id={id}>x</span>
             </div>
         </span>
     )

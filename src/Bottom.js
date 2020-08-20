@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
+import { connect } from 'react-redux';
 
 const Bottom = ( props ) => {
     return(
         <div className="todo-bottom">
-          <span>0 item left</span>
+          <span>{props.count} item left</span>
           <ul className="todo-bottom-option">
             <li>All</li>
             <li>Active</li>
@@ -14,4 +15,10 @@ const Bottom = ( props ) => {
     )
 }
 
-export default Bottom;
+const mapStateToProps = ( state ) => {
+    return{
+        count: state.count,
+    }
+}
+
+export default connect( mapStateToProps )( Bottom );
